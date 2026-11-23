@@ -1,0 +1,76 @@
+a)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tasks.test.ts > базовая доска > создаёт задачу и обрезает название
+AssertionError: expected '  Купить хлеб  ' to be 'Купить хлеб' // Object.is equality
+
+Expected: "Купить хлеб"
+Received: "  Купить хлеб  "
+
+ ❯ src/tasks.test.ts:9:29
+      7|     it("создаёт задачу и обрезает название", () => {
+      8|         const task = createTask(9, "  Купить хлеб  ")
+      9|         expect(task?.title).toBe("Купить хлеб")
+       |                             ^
+     10|     })
+     11|
+
+
+б)
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tasks.test.ts > базовая доска > Не переименует в пустую задачу
+AssertionError: expected '' to be 'Сдать лабораторную' // Object.is equality
+
+- Expected
++ Received
+
+- Сдать лабораторную
+
+ ❯ src/tasks.test.ts:15:28
+     13|         const task = renameTask(seedTasks,1, " \t\u00A0  ")
+     14|         const res = task.find((t) => t.id === 1)
+     15|         expect(res?.title).toBe("Сдать лабораторную")
+       |                            ^
+     16|     })
+     17|
+
+в)
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tasks.test.ts > базовая доска > Не показывает пустые строки в списке задач
+AssertionError: expected [ 1, 2, 3 ] to deeply equal [ 1, 2 ]
+
+- Expected
++ Received
+
+  [
+    1,
+    2,
++   3,
+  ]
+
+ ❯ src/tasks.test.ts:26:21
+     24|     it("Не показывает пустые строки в списке задач", () => {
+     25|         const ids = visibleTasks(seedTasks, "all").map((task) => task.id)
+     26|         expect(ids).toEqual([1, 2])
+       |                     ^
+     27|     })
+     28|
+г)
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tasks.test.ts > базовая доска > создаёт задачу и обрезает название
+AssertionError: expected '​ Купить хлеб' to be 'Купить хлеб' // Object.is equality
+
+Expected: "Купить хлеб"
+Received: "​ Купить хлеб"
+
+ ❯ src/tasks.test.ts:14:29
+     12|     it("создаёт задачу и обрезает название", () => {
+     13|         const task = createTask(9, " \u200B Купить хлеб  ")
+     14|         expect(task?.title).toBe("Купить хлеб")
+       |                             ^
+     15|     })
+     16|
